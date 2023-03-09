@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap");
+
+:root {
+  --clr-chart-text: #2d2926;
+  --clr-bg: #f5e9cf;
+
+  --clr-neutral-100: #fff;
+  --clr-neutral-900: #222c2a;
+
+  --ff-primary: "Be Vietnam Pro", sans-serif;
+  --ff-title: "Lexend", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 3em 0 3.5em;
+  background-color: var(--clr-bg);
+  font-family: var(--ff-primary);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--clr-chart-text);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #0078aa;
+}
+
+section {
+  width: min(100%, 50rem);
+  margin-inline: auto;
+}
+
+#facts {
+  width: min(100%, 70rem);
+  margin-inline: auto;
+  display: flex;
+}
+
+h4.chart-title {
+  font-family: "DM Serif Text", serif;
+  font-size: 2.25rem;
+  margin-bottom: 1em;
+  letter-spacing: 1.75px;
+}
+
+/* subtitle */
+h5.vis-title {
+  font-family: "DM Serif Text", serif;
+  font-size: 1.75rem;
+  padding-bottom: 0.5em;
+}
+
+ul {
+  margin-left: 1.25em;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+div.subtitle {
+  font-weight: 300;
+  font-size: 1.15rem;
+}
+
+label {
+  font-size: 1.15rem;
+}
+
+/* search box */
+
+.container-search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+#output-msg {
+  height: 1rem;
+  padding-top: 0.25rem;
+  padding-left: 0.25rem;
+  font-size: 0.95em;
+  color: #808080;
+}
+
+.wrapper {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+input[type="text"] {
+  width: 300px;
+  font-family: var(--ff-primary);
+  font-size: 1rem;
+  padding: 12px 20px;
+  margin: 0px;
+  border: 1px solid #479f04;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.autocomplete {
+  position: relative;
+  display: block;
+}
+
+.autocomplete-items {
+  width: 294px;
+  position: absolute;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  margin: 0 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  border: 1px solid #eee;
+  border-top: none;
+}
+
+.autocomplete-items div:hover {
+  background-color: #e1eedd;
+}
+
+.autocomplete-active {
+  background-color: #e1eedd !important;
+  color: #333;
+}
+
+#county-submit-btn,
+#clear-map-btn {
+  background-color: hsl(94, 80%, 32%);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 12px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  height: 2.5em;
+  text-align: center;
+}
+
+#county-submit-btn:hover {
+  background-color: hsl(94, 95%, 32%);
+}
+
+#clear-map-btn {
+  background-color: #f5e9cf;
+  color: hsl(94, 80%, 32%);
+  margin-left: 20px;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+#counties-map,
+#mini-map {
+  display: flex;
+  justify-content: center; /* centers x axis */
+  align-items: center; /* centers y axis */
+  flex: 0 0 auto;
+  padding: 0;
+  margin: 0;
+}
+
+div.tooltip {
+  padding: 0.65em 0.75em;
+  position: absolute;
+  background-color: #333;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  border-radius: 3px;
+  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+div.tooltip .county-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ff9f29;
+}
+
+div.tooltip .state-name {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+div.tooltip .county-count {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #ffcf36; /* #29B9FF; #f97607; */
+}
+
+#swipe-msg {
+  display: none;
+}
+
+hr {
+  margin-top: 0;
+  border: 0;
+  height: 1px;
+  background-color: hsla(94, 95%, 32%, 0.45);
+  width: 50%;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+#facts {
+  display: flex;
+}
+
+/* #facts > div {
+  width: 100%;
+} */
+
+#facts > div:first-child {
+  /* width: 100%; */
+  padding-right: 2rem;
+}
+
+#map-show-btn {
+  background-color: transparent;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #333;
+  padding: 10px 18px;
+  display: block;
+  border: 1px solid hsl(94, 80%, 32%);
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  width: 250px;
+}
+
+.container-mm > * {
+  width: 100%;
+}
+
+#mini-map {
+  border-collapse: collapse;
+}
+
+/* table */
+
+h5.vis-title {
+  font-family: "DM Serif Text", serif;
+  font-size: 1.5rem;
+  padding-bottom: 0.5em;
+}
+
+#facts-table {
+  margin-bottom: 2em;
+  border-collapse: collapse;
+  border-left: 1px dashed hsla(94, 95%, 32%, 0.35);
+  padding-left: 2rem;
+}
+
+.top-counties {
+  padding: 0.25em 1em;
+  margin: 0;
+  background-color: hsla(31, 84%, 85%, 0.85);
+}
+
+.top-counties:first-child {
+  padding-right: 2.25em;
+  width: 250px;
+  text-align: left;
+}
+
+.top-counties:not(:first-child) {
+  text-align: right;
+  background-color: hsla(31, 84%, 85%, 0.5);
+  color: #666;
+  font-weight: 500;
+}
+
+tr {
+  border-bottom: 0.05px solid hsla(0, 0%, 100%, 0.25);
+}
+
+/* footer */
+
+#footer {
+  /* border-top: 0.75px solid #909090; */
+  background-color: var(--clr-header-bg);
+  font-family: var(--ff-primary);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+#footer p {
+  font-size: 0.8rem;
+  color: #666666;
+}
+
+#footer img {
+  margin: auto;
+}
+
+#footer ul {
+  list-style-type: none; /* removes bullets */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  line-height: 0; /* removes gap between links when wrapped on small screens */
+  font-weight: 700;
+}
+
+#footer li {
+  display: inline;
+  padding: 0.75em;
+}
+
+.footer-links-small li {
+  font-size: 0.95rem;
+}
+
+.footer-links-small a {
+  color: #606060;
+}
+
+@media screen and (max-width: 1000px) {
+  section {
+    padding: 1rem 2rem;
+  }
+
+  h4.chart-title {
+    line-height: 1.2;
+  }
+
+  .wrapper {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  .wrapper > input {
+    margin: 0 !important;
+    margin-top: 0.75rem !important;
+  }
+
+  .map-mobile {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding: 0;
+  }
+
+  .map-mobile::-webkit-scrollbar {
+    display: none;
+  }
+
+  #swipe-msg {
+    display: block;
+    text-align: center;
+    padding: 1rem 0 2rem;
+    font-size: 0.9em;
+  }
+
+  #facts {
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+  }
+
+  #facts > div {
+    width: 100%;
+    margin: auto;
+    padding-bottom: 3rem;
+  }
+
+  #facts > div:first-child {
+    padding: 0;
+    margin: 0;
+  }
+
+  .container-mm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #map-show-btn {
+    width: 200px;
+    margin-top: 0.75rem;
+  }
+
+  #facts-table {
+    padding: 0;
+    border-left: none;
+  }
+
+  #table-top {
+    margin: 1em 0 0;
+    border-collapse: collapse;
+    display: inline-block;
+  }
+
+  #footer {
+    padding-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #county-search {
+    width: 250px;
+  }
+}

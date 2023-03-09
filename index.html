@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>U.S. County Highlights</title>
+  </head>
+  <body>
+
+    <section>
+      <!-- title -->
+      <h4 class="chart-title">U.S. County Highlights</h4>
+
+      <!-- text -->
+      <div class="subtitle">
+        Out of the <strong style="color: #ea710c">3,142 counties</strong> across the 50 states, there exist
+        <strong style="color: #ea710c">1,833</strong> different names.
+      </div>
+      <br />
+
+      <label for="county-input"
+        >Type in a county name to see the locations, if any, of other counties with the same name:</label
+      >
+
+      <br />
+
+      <div class="container-search">
+        <label class="wrapper">
+
+          <!-- search field -->
+          <input type="text" id="county-search-btn" />
+
+          <!-- sesarch buttons -->
+          <input type="submit" id="county-submit-btn" value="Find Counties" />
+          <input type="submit" id="clear-map-btn" value="Clear map" />
+        </label>
+        <div class="results">
+          <ul></ul>
+        </div>
+        <div id="output-msg"></div></div>
+      </div>
+      
+    </section>
+
+    <!-- map -->
+    <div class="map-mobile">
+      <div id="counties-map"></div>
+    </div>
+    
+    <div id="swipe-msg">← Swipe horizontally to see the map →</div>
+    <hr />
+
+    <!-- facts -->
+    <div id="facts">
+
+      <!-- map: counties that don't share name -->
+      <div class="container-mini-map">
+        <h5 class="vis-title">Most Infrequent Names</h5>
+        <div class="container container-mm">
+          <div>These counties have names shared by no other county</div>
+          <input type="submit" id="map-show-btn" value="Show on Top Map" />
+        </div>
+        <div class="map-mobile">
+          <div id="mini-map"></div>
+        </div>
+        <div id="swipe-msg">← Swipe horizontally to see the map →</div>
+      </div>
+
+      <!-- table: top 10 names -->
+      <div id="facts-table">
+        <h5 class="vis-title">Most Frequent Names</h5>
+        <table id="table-top"></table>
+      </div>
+
+      
+    </div>
+    <hr />
+    
+    <!-- footer -->
+    <footer id="footer">
+      Resources used: <a href="https://observablehq.com/@d3/u-s-map" target="_blank">U.S. Map on Observable</a
+      ><br /><br />
+      <p>Map made as an exercise to practice mapping in D3.js and vanilla JavaScript. See the GitHub repo here.</p>
+    </footer>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
+    <script src="./app.js"></script>
+    <script src="./mini-map.js"></script>
+    <script src="./table.js"></script>
+  </body>
+</html>
