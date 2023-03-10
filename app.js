@@ -1,3 +1,5 @@
+import { Table } from "./table.js";
+
 // dimensions
 const width = 1250,
   height = 800;
@@ -143,6 +145,32 @@ async function draw() {
     false
   );
 
+  // show clicked-on county name from table
+  let state = {
+    selectedState: null,
+  };
+
+  let table;
+
+  initTable();
+
+  function initTable() {
+    table = new Table(state, setGlobalState);
+    drawTable();
+  }
+
+  function drawTable() {
+    table.drawTable(state);
+  }
+
+  function setGlobalState(nextState) {
+    state = { ...state, ...nextState };
+    countyInput(state.selectedState);
+    colorMap(state.selectedState);
+    drawTable();
+  }
+
+  // search box list
   autocomplete(countySearch, countyNames);
 
   function autocomplete(inp, arr) {
