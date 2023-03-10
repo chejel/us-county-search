@@ -45,11 +45,13 @@
     </section>
 
     <!-- map -->
+    
     <div class="map-mobile">
       <div id="counties-map"></div>
+      
     </div>
-    
     <div id="swipe-msg">← Swipe horizontally to see the map →</div>
+    
     <hr />
 
     <!-- facts -->
@@ -60,7 +62,13 @@
         <h5 class="vis-title">Most Infrequent Names</h5>
         <div class="container container-mm">
           <div>These counties have names shared by no other county</div>
-          <input type="submit" id="map-show-btn" value="Show on Top Map" />
+          <button type="submit" id="map-show-btn">
+            Show on Top Map &nbsp;<i class="fa fa-arrow-circle-up"></i>
+        </button>
+          <!--
+            Use <button> instead of <input> to be able to use icon 
+            <input type="submit" id="map-show-btn" value="Show on Top Map" /> 
+          -->
         </div>
         <div class="map-mobile">
           <div id="mini-map"></div>
@@ -68,8 +76,10 @@
         <div id="swipe-msg">← Swipe horizontally to see the map →</div>
       </div>
 
+      
       <!-- table: top 10 names -->
       <div id="facts-table">
+        <hr class="mobile-hr" style="border-bottom: 1px dashed hsla(94, 95%, 32%, 0.35); background-color: transparent;" />
         <h5 class="vis-title">Most Frequent Names</h5>
         <table id="table-top"></table>
       </div>
@@ -80,14 +90,15 @@
     
     <!-- footer -->
     <footer id="footer">
-      Resources used: <a href="https://observablehq.com/@d3/u-s-map" target="_blank">U.S. Map on Observable</a
+      Resource used: <a href="https://observablehq.com/@d3/u-s-map" target="_blank">U.S. Map on Observable</a
       ><br /><br />
-      <p>Map made as an exercise to practice mapping in D3.js and vanilla JavaScript. See the GitHub repo here.</p>
+      <a href="https://github.com/chejel/us-county-search"><i class="fa-brands fa-github fa-xl fa-icons"></i></a>
     </footer>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
     <script src="./app.js"></script>
     <script src="./mini-map.js"></script>
     <script src="./table.js"></script>
+    <script src="https://kit.fontawesome.com/c1c795151c.js" crossorigin="anonymous"></script>
   </body>
 </html>

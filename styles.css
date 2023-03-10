@@ -217,6 +217,7 @@ div.tooltip .county-count {
 
 #swipe-msg {
   display: none;
+  margin-bottom: 2rem;
 }
 
 hr {
@@ -233,12 +234,7 @@ hr {
   display: flex;
 }
 
-/* #facts > div {
-  width: 100%;
-} */
-
 #facts > div:first-child {
-  /* width: 100%; */
   padding-right: 2rem;
 }
 
@@ -256,9 +252,12 @@ hr {
   text-align: center;
   width: 250px;
 }
+#map-show-btn:hover {
+  background-color: hsla(116, 68%, 71%, 0.15);
+}
 
 .container-mm > * {
-  width: 100%;
+  width: 75%;
 }
 
 #mini-map {
@@ -296,11 +295,15 @@ h5.vis-title {
   text-align: right;
   background-color: hsla(31, 84%, 85%, 0.5);
   color: #666;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 
 tr {
   border-bottom: 0.05px solid hsla(0, 0%, 100%, 0.25);
+}
+
+.mobile-hr {
+  display: none;
 }
 
 /* footer */
@@ -347,6 +350,14 @@ tr {
   color: #606060;
 }
 
+a > .fa-icons {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+a:hover > .fa-icons {
+  color: #0078aa;
+}
+
 @media screen and (max-width: 1000px) {
   section {
     padding: 1rem 2rem;
@@ -378,10 +389,20 @@ tr {
     display: none;
   }
 
+  #map-show-btn {
+    margin-top: 0.75rem;
+  }
+
+  /* center elements */
+  .map-mobile > div {
+    margin: auto;
+    width: 100%;
+  }
+
   #swipe-msg {
     display: block;
     text-align: center;
-    padding: 1rem 0 2rem;
+    padding: 0;
     font-size: 0.9em;
   }
 
@@ -408,11 +429,6 @@ tr {
     flex-direction: column;
   }
 
-  #map-show-btn {
-    width: 200px;
-    margin-top: 0.75rem;
-  }
-
   #facts-table {
     padding: 0;
     border-left: none;
@@ -426,6 +442,10 @@ tr {
 
   #footer {
     padding-top: 2rem;
+  }
+
+  .mobile-hr {
+    display: block;
   }
 }
 
