@@ -215,7 +215,8 @@ div.tooltip .county-count {
   color: #ffcf36; /* #29B9FF; #f97607; */
 }
 
-#swipe-msg {
+#swipe-msg,
+#swipe-msg-mini {
   display: none;
   margin-bottom: 2rem;
 }
@@ -385,18 +386,13 @@ a:hover > .fa-icons {
     padding: 0;
   }
 
-  .map-mobile::-webkit-scrollbar {
+  .map-mobile::-webkit-scrollbar,
+  .map-mobile-mini::-webkit-scrollbar {
     display: none;
   }
 
   #map-show-btn {
     margin-top: 0.75rem;
-  }
-
-  /* center elements */
-  .map-mobile > div {
-    margin: auto;
-    width: 100%;
   }
 
   #swipe-msg {
@@ -446,6 +442,30 @@ a:hover > .fa-icons {
 
   .mobile-hr {
     display: block;
+  }
+}
+
+@media screen and (min-width: 626px) and (max-width: 1000px) {
+  /* center elements */
+  .map-mobile-mini > div {
+    margin: auto;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .map-mobile-mini {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding: 0;
+  }
+
+  #swipe-msg-mini {
+    display: block;
+    text-align: center;
+    padding: 0;
+    font-size: 0.9em;
   }
 }
 
