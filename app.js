@@ -173,6 +173,8 @@ async function draw() {
   // search box list
   autocomplete(countySearch, countyNames);
 
+  // autocomplete county search box: code and comments from
+  // https://www.w3schools.com/howto/howto_js_autocomplete.asp
   function autocomplete(inp, arr) {
     // text input, array of counties
 
