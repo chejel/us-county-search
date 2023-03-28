@@ -181,13 +181,6 @@ class Search {
         });
       } else if (countyValue.includes("County")) {
         facts.append("text").html('Remove "county" from your search term');
-        // } else if (!state.selectedCounty) {
-        //   facts.selectAll("text").remove();
-        // } else if (state.selectedCounty == uniqueCounties) {
-        //   facts
-        //     .append("text")
-        //     .html("These 1,390 counties do not share a name with any other county.")
-        //     .style("color", "#ea710c");
       } else if (countyValue === "") {
         facts.selectAll("text").remove();
       } else if (countyArr.length === 0) {

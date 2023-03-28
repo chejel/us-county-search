@@ -48,6 +48,7 @@ class Table {
 
     this.rows.on("click", (e, d) => {
       setGlobalState({ selectedCounty: d.county.toLowerCase() });
+      setGlobalState({ allUniqueCounties: null });
     });
 
     // rows.on("click", function (d) {
