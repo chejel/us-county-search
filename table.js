@@ -46,18 +46,14 @@ class Table {
       .text(d => d)
       .attr("class", "top-counties");
 
-    this.rows.on("click", d => {
-      setGlobalState({ selectedState: d.target.innerHTML });
+    this.rows.on("click", (e, d) => {
+      setGlobalState({ selectedCounty: d.county.toLowerCase() });
     });
 
     // rows.on("click", function (d) {
     //   let tableCounty = d.target.innerHTML;
     //   console.log(tableCounty);
     // });
-  }
-
-  drawTable(state, setGlobalState) {
-    this.rows;
   }
 }
 

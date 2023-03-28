@@ -21,41 +21,47 @@
 
       <!-- text -->
       <div class="subtitle">
-        Out of the <strong style="color: #ea710c">3,142 counties</strong> across the 50 states, there exist
-        <strong style="color: #ea710c">1,833</strong> different names.
+        Out of the <span style="color: #ea710c">3,142 counties</span> across the 50 states, there exist
+        <span style="color: #ea710c">1,833</span> different names. In Alaska, "borough" is used in place of "county" while Louisiana uses the term "parish."
       </div>
       <br />
 
       <label for="county-input"
-        >Type in a county name to see the locations, if any, of other counties with the same name:</label
+        >Type in a county name to see the locations of other counties with the same name:</label
       >
 
       <br />
 
       <div class="container-search">
-        <label class="wrapper">
+        <div class="wrapper">
 
           <!-- search field -->
-          <input type="text" id="county-search-btn" />
+          <input type="text" id="county-search-input" />
 
           <!-- sesarch buttons -->
-          <input type="submit" id="county-submit-btn" value="Find Counties" />
-          <input type="submit" id="clear-map-btn" value="Clear map" />
-        </label>
-        <div class="results">
-          <ul></ul>
+          <div class="search-buttons">
+            <input type="submit" id="county-submit-btn" value="Find Counties" />
+            <button type="reset" id="clear-map-btn">
+              <i class="fa-regular fa-circle-xmark"></i> Clear map
+          </button>
+            <!-- <input type="submit" id="clear-map-btn" value=" Clear map" /> -->
+          </div>
         </div>
+        <!-- <div class="results">
+          <ul></ul>
+        </div> -->
         <div id="output-msg"></div></div>
       </div>
       
     </section>
 
     <!-- map -->
+    <div id="swipe-msg">← Swipe horizontally to see the map →</div>
     <div class="map-mobile">
       <div id="counties-map"></div>
       
     </div>
-    <div id="swipe-msg">← Swipe horizontally to see the map →</div>
+    
     
     <hr />
 
@@ -75,10 +81,11 @@
             <input type="submit" id="map-show-btn" value="Show on Top Map" /> 
           -->
         </div>
+        <div id="swipe-msg-mini">← Swipe horizontally to see the map →</div>
         <div class="map-mobile-mini">
           <div id="mini-map"></div>
         </div>
-        <div id="swipe-msg-mini">← Swipe horizontally to see the map →</div>
+        
       </div>
       
       <!-- table: top 10 names -->
@@ -90,21 +97,19 @@
         <table id="table-top"></table>
       </div>
 
-      
     </div>
     <hr />
     
     <!-- footer -->
     <footer id="footer">
-      Resource used: <a href="https://observablehq.com/@d3/u-s-map" target="_blank">U.S. Map on Observable</a
-      ><br /><br />
-      <a href="https://github.com/chejel/us-county-search"><i class="fa-brands fa-github fa-xl fa-icons"></i></a>
+      Resources used: <a href="https://observablehq.com/@d3/u-s-map" target="_blank">U.S. Map on Observable</a
+      >, <a href="https://www.w3schools.com/howto/howto_js_autocomplete.asp" target="_blank">Autocomplete form</a>
+      <br />Inspiration: <a href="https://curiositycoloredglasses.com/place-names" target="_blank">How do place names differ across America?</a>
     </footer>
+
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
     <script type="module" src="./app.js"></script>
-    <script src="./mini-map.js"></script>
-    <!-- <script src="./table.js"></script> -->
     <script src="https://kit.fontawesome.com/c1c795151c.js" crossorigin="anonymous"></script>
   </body>
 </html>
