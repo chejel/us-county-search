@@ -35,10 +35,6 @@ a {
   color: #0078aa;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 section {
   width: min(100%, 50rem);
   margin-inline: auto;
