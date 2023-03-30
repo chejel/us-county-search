@@ -39,8 +39,8 @@ class Search {
           b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
           b.innerHTML += arr[i].substr(val.length);
           /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-
+          // apostrophe fix: https://stackoverflow.com/questions/54790891/escaping-apostrophes-in-javascript
+          b.innerHTML += "<input type='hidden' value='" + arr[i].replace(/'/g, "&#x27;") + "'>";
           /*execute a function when someone clicks on the item value (DIV element):*/
           b.addEventListener("click", function (e) {
             /*insert the value for the autocomplete text field:*/
@@ -87,6 +87,7 @@ class Search {
       }
     });
     function addActive(x) {
+      console.log(x);
       /*a function to classify an item as "active":*/
       if (!x) return false;
       /*start by removing the "active" class on all items:*/
@@ -123,7 +124,6 @@ class Search {
       function (e) {
         if (e.key === "Enter") {
           closeAllLists();
-          //new Search().draw(this.submitButton.click());
           e.preventDefault();
 
           // new:
