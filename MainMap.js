@@ -85,21 +85,27 @@ class MainMap {
         }
       })
       .on("mousemove", (e, d) => {
-        // if (window.innerWidth - d3.pointer(e)[0] > 375) {
-        //   this.tooltip.style("transform", `translate(${e.pageX + 20}px,${e.pageY + 20}px)`);
-        // } else {
-        //   this.tooltip.style("transform", `translate(${e.pageX - 200}px,${e.pageY - 100}px)`);
-        // }
-        if (e.pageX > window.innerWidth * 0.5) {
-          this.tooltip.style("transform", `translate(${e.pageX - 200}px,${e.pageY - 100}px)`);
+        // tooltip position
+        if (window.innerWidth > 600) {
+          if (window.innerWidth - 350 > d3.pointer(e)[0]) {
+            this.tooltip.style("transform", `translate(${e.pageX + 20}px,${e.pageY + 20}px)`);
+          } else {
+            this.tooltip.style("transform", `translate(${e.pageX - 200}px,${e.pageY - 100}px)`);
+          }
         } else {
-          this.tooltip.style("transform", `translate(${e.pageX + 20}px,${e.pageY + 20}px)`);
-        }
+          if (e.pageX > window.innerWidth * 0.5) {
+            this.tooltip.style("transform", `translate(${e.pageX - 200}px,${e.pageY - 100}px)`);
+          } else {
+            this.tooltip.style("transform", `translate(${e.pageX + 20}px,${e.pageY + 20}px)`);
+          }
 
-        if (!state.selectedCounty && !state.allUniqueCounties) {
-          this.counties.attr("fill", d =>
-            d.properties.name.toLowerCase() === e.target.__data__.properties.name.toLowerCase() ? "#EBB02D" : "#FEFBE9"
-          );
+          if (!state.selectedCounty && !state.allUniqueCounties) {
+            this.counties.attr("fill", d =>
+              d.properties.name.toLowerCase() === e.target.__data__.properties.name.toLowerCase()
+                ? "#EBB02D"
+                : "#FEFBE9"
+            );
+          }
         }
       });
   }

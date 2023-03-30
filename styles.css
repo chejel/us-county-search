@@ -485,17 +485,30 @@ a:hover > .fa-icons {
   #county-submit-btn {
     margin-left: 1rem;
   }
-  #clear-map-btn {
+  /* #clear-map-btn {
     background-color: #f5e9cf;
     color: hsl(94, 80%, 32%);
     margin: 0;
     padding-top: 10px;
-  }
+  } */
   #output-msg {
     margin-top: 0.45rem;
   }
   #swipe-msg {
     padding-top: 0.75rem;
+  }
+}
+@media screen and (max-width: 730px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #county-submit-btn,
+  #clear-map-btn {
+    margin: 0.7rem 0;
+    padding: 6px 15px;
+    height: 3rem;
   }
 }
 
@@ -517,17 +530,27 @@ a:hover > .fa-icons {
   .container-search {
     padding-bottom: 2rem;
   }
+}
 
-  #county-submit-btn,
+@media screen and (max-width: 410px) {
   #clear-map-btn {
-    margin: 0.7rem 0;
-    padding: 6px 15px;
-    height: 3rem;
+    margin: 0;
+    padding: 0 0 0 0.75rem;
   }
 }
 
 @media screen and (max-width: 375px) {
   #county-search {
     width: 250px;
+  }
+
+  #clear-map-btn {
+    margin: 0;
+    padding: 0;
+    height: 2rem;
+  }
+
+  #output-msg {
+    padding: 0.5rem 0 0 0;
   }
 }
