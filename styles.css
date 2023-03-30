@@ -113,10 +113,22 @@ input[type="text"] {
   font-size: 1.1em;
   padding: 12px 20px;
   margin: 0px;
-  /* border: 1px solid #479f04; */
+  background-color: hsla(0, 0%, 100%, 0.8);
   border-color: transparent;
   border-radius: 4px;
   box-sizing: border-box;
+  filter: drop-shadow(1px 2px 1px rgb(0.5 0.5 0.5 / 0.1));
+}
+
+input[type="text"]:hover {
+  background-color: hsla(0, 0%, 100%, 1);
+}
+
+::placeholder {
+  font-family: var(--ff-primary);
+  font-weight: 300;
+  color: #b4b4b4;
+  opacity: 1; /* Firefox */
 }
 
 .autocomplete {
@@ -167,18 +179,22 @@ input[type="text"] {
   text-align: center;
 }
 
+#county-submit-btn {
+  filter: drop-shadow(1px 2px 1px rgb(0.5 0.5 0.5 / 0.1));
+}
+
 #county-submit-btn:hover {
   background-color: hsl(94, 95%, 32%);
 }
 
 #clear-map-btn {
   background-color: #f5e9cf;
-  color: hsl(94, 80%, 32%);
+  color: hsl(94, 80%, 22%);
   margin-left: 20px;
 }
 
 #clear-map-btn:hover {
-  color: hsl(94, 80%, 22%);
+  color: hsl(94, 80%, 32%);
 }
 
 #counties-map,
@@ -324,6 +340,7 @@ tr {
   font-family: var(--ff-primary);
   font-size: 0.9rem;
   text-align: center;
+  padding: 0 2rem;
 }
 
 #footer p {
@@ -500,6 +517,7 @@ a:hover > .fa-icons {
   .container-search {
     padding-bottom: 2rem;
   }
+
   #county-submit-btn,
   #clear-map-btn {
     margin: 0.7rem 0;

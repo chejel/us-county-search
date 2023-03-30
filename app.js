@@ -53,7 +53,6 @@ function init() {
 function draw() {
   search.draw(state, setGlobalState);
   mainMap.draw(state); // this will be changed based on user interaction
-  miniMap.draw(state, setGlobalState);
 }
 
 // updates states, to pass to components so they can update the global state object

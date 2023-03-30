@@ -2,6 +2,7 @@ class MiniMap {
   constructor(state, setGlobalState) {
     // show all counties that don't share a name with any other
     const uniqueCountiesArr = d3.groups(state.topoCounties.features, d => d.properties.name);
+
     // generates list of names
     this.uniqueCounties = [...new Set(uniqueCountiesArr.filter(d => d[1].length === 1).map(d => d[0]))];
     this.toggleUnique = document.getElementById("map-show-btn");
@@ -15,8 +16,6 @@ class MiniMap {
 
     // path generator: translates topojson coordinates into SVG path values
     const path = d3.geoPath().projection(projection);
-
-    //g.selectAll("path").data(topoCounties.features);
 
     const g = svg
       .append("g")
@@ -40,17 +39,13 @@ class MiniMap {
       .attr("fill", "#8BE884")
       .attr("opacity", "0.5")
       .attr("stroke-width", "0.2px");
-  }
-
-  draw(state, setGlobalState) {
-    //state.selectedCounty = this.uniqueCounties;
 
     this.toggleUnique.addEventListener(
       "click",
       () => {
-        //setGlobalState({ selectedCounty: this.uniqueCounties.map(d => d.toLowerCase()) });
         setGlobalState({ selectedCounty: null });
         setGlobalState({ allUniqueCounties: this.uniqueCounties.map(d => d.toLowerCase()) });
+        console.log("fire toggle");
       },
       false
     );

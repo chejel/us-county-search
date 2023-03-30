@@ -36,7 +36,7 @@
         <div class="wrapper">
 
           <!-- search field -->
-          <input type="text" id="county-search-input" />
+          <input type="text" id="county-search-input" placeholder="County name" />
 
           <!-- sesarch buttons -->
           <div class="search-buttons">
@@ -44,12 +44,8 @@
             <button type="reset" id="clear-map-btn">
               <i class="fa-regular fa-circle-xmark"></i> Clear map
           </button>
-            <!-- <input type="submit" id="clear-map-btn" value=" Clear map" /> -->
           </div>
         </div>
-        <!-- <div class="results">
-          <ul></ul>
-        </div> -->
         <div id="output-msg"></div></div>
       </div>
       
@@ -72,13 +68,12 @@
       <div class="container-mini-map">
         <h5 class="vis-title">Most Infrequent Names</h5>
         <div class="container container-mm">
-          <div>These counties have names shared by no other county</div>
+          <div><span style="background-color: hsla(116, 68%, 71%, 0.25); padding: 0.1rem 0.25rem; border-radius: 2px;">These counties</span> have names shared by no other county</div>
           <button type="submit" id="map-show-btn">
             Show on Top Map &nbsp;<i class="fa fa-arrow-circle-up"></i>
           </button>
           <!--
             Use <button> instead of <input> to be able to use icon 
-            <input type="submit" id="map-show-btn" value="Show on Top Map" /> 
           -->
         </div>
         <div id="swipe-msg-mini">← Swipe horizontally to see the map →</div>
@@ -104,7 +99,8 @@
     <footer id="footer">
       Resources used: <a href="https://observablehq.com/@d3/u-s-map" target="_blank">U.S. Map on Observable</a
       >, <a href="https://www.w3schools.com/howto/howto_js_autocomplete.asp" target="_blank">Autocomplete form</a>
-      <br />Inspiration: <a href="https://docs.mapbox.com/mapbox-gl-js/example/query-similar-features/" target="_blank">Highlight features containing similar data</a>, <a href="https://curiositycoloredglasses.com/place-names" target="_blank">How do place names differ across America?</a>
+      <br /><br />Inspiration: <a href="https://docs.mapbox.com/mapbox-gl-js/example/query-similar-features/" target="_blank">Highlight features containing similar data</a>, <a href="https://curiositycoloredglasses.com/place-names" target="_blank">How do place names differ across America?</a>
+      <br /><br />Created by Jennifer Cheng (<a href="mailto:chejenj@gmail.com">email</a>)
     </footer>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>

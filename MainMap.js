@@ -35,8 +35,7 @@ class MainMap {
       .attr("stroke", "#818181")
       .attr("stroke-width", "0.4px")
       .attr("fill", "#FEFBE9")
-      // add drop shadows inside counties
-      .style("filter", "drop-shadow(1px 2px 1px rgb(0.5 0.5 0.5 / 0.1))");
+      .style("filter", "drop-shadow(1px 2px 1px rgb(0.5 0.5 0.5 / 0.1))"); // add drop shadows inside counties
 
     // draw states
     this.g.append("path").attr("d", path(topoStates)).attr("stroke-width", "0.7px");
@@ -48,13 +47,6 @@ class MainMap {
   draw(state) {
     this.counties.exit().remove();
     this.counties
-      // .on("mousemove", (e, d) => {
-      //   if (!state.selectedCounty) {
-      //     this.counties.attr("fill", d =>
-      //       d.properties.name.toLowerCase() === e.target.__data__.properties.name.toLowerCase() ? "#EBB02D" : "#FEFBE9"
-      //     );
-      //   }
-      // })
       .transition()
       .attr(
         "fill",
@@ -74,7 +66,6 @@ class MainMap {
         const stateName = state.stateValues.get(d.id.slice(0, 2)); // https://observablehq.com/@joeknittel/county-map-with-mouseover-effect
 
         const selectedCountyArr = state.topoCounties.features.filter(d => d.properties.name === countyName);
-        //const selectedCountyCount = state.topoCounties.features.filter(d => d.properties.name === countyName).length;
 
         const selectedCountyCountText =
           selectedCountyArr.length > 1
