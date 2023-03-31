@@ -125,9 +125,6 @@ class Search {
         if (e.key === "Enter") {
           closeAllLists();
           e.preventDefault();
-
-          // new:
-          this.setGS = this.countySearch;
         }
       },
       false
@@ -139,13 +136,12 @@ class Search {
     // search box list
     new Search().autocomplete(this.countySearch, state.countyNameList);
 
+    // search box
     this.countySearch.onkeyup = e => {
       if (e.key === "Enter") {
-        setGlobalState({ selectedCounty: this.countySearch.value.toLowerCase() }); //new Search().toTitleCase(e.target.value)
+        setGlobalState({ selectedCounty: this.countySearch.value.toLowerCase() });
         outputMsg(this.countySearch.value.toLowerCase());
-        console.log(this.countySearch.value.toLowerCase());
 
-        //this.submitButton.click();
         e.preventDefault();
         setGlobalState({ allUniqueCounties: null });
       }
@@ -160,10 +156,6 @@ class Search {
 
     // msg under search box
     function outputMsg(countyValue) {
-      // const selectedCountyCount = state.topoCounties.features.filter(
-      //   d => d.properties.name.toLowerCase() === countyValue.toLowerCase() //state.selectedCounty
-      // ).length;
-
       // return topology data filtered to input county
       const countyArr = state.topoCounties.features.filter(d => d.properties.name.toLowerCase() === countyValue);
 

@@ -25,8 +25,6 @@ class MainMap {
       .attr("stroke-linecap", "round")
       .style("filter", "drop-shadow(3px 3px 2px rgb(0.5 0.5 0.5 / 0.1))");
 
-    //states();
-
     this.counties = this.g
       .selectAll("path")
       .data(state.topoCounties.features)
@@ -98,14 +96,12 @@ class MainMap {
           } else {
             this.tooltip.style("transform", `translate(${e.pageX + 20}px,${e.pageY + 20}px)`);
           }
-
-          if (!state.selectedCounty && !state.allUniqueCounties) {
-            this.counties.attr("fill", d =>
-              d.properties.name.toLowerCase() === e.target.__data__.properties.name.toLowerCase()
-                ? "#EBB02D"
-                : "#FEFBE9"
-            );
-          }
+        }
+        // highlight other counties with same name
+        if (!state.selectedCounty && !state.allUniqueCounties) {
+          this.counties.attr("fill", d =>
+            d.properties.name.toLowerCase() === e.target.__data__.properties.name.toLowerCase() ? "#EBB02D" : "#FEFBE9"
+          );
         }
       });
   }

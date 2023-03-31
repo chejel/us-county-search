@@ -50,11 +50,6 @@ class Table {
       setGlobalState({ selectedCounty: d.county.toLowerCase() });
       setGlobalState({ allUniqueCounties: null });
     });
-
-    // rows.on("click", function (d) {
-    //   let tableCounty = d.target.innerHTML;
-    //   console.log(tableCounty);
-    // });
   }
 }
 

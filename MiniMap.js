@@ -46,6 +46,7 @@ class MiniMap {
         setGlobalState({ selectedCounty: null });
         setGlobalState({ allUniqueCounties: this.uniqueCounties.map(d => d.toLowerCase()) });
         console.log("fire toggle");
+        e.preventDefault();
       },
       false
     );
