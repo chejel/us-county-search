@@ -185,6 +185,12 @@ class Search {
       outputMsg("");
     }
 
+    if (!state.selectedCounty && !state.allUniqueCounties && this.countySearch.value === "") {
+      document.querySelector("#clear-map-btn").style.display = "none";
+    } else {
+      document.querySelector("#clear-map-btn").style.display = "inline-block";
+    }
+
     this.clearButton.onclick = e => {
       this.countySearch.value = "";
       setGlobalState({ selectedCounty: null });
